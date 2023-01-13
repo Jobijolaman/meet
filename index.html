@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+
+        script.addEventListener("load", function (event) {
+            const meeting = new VideoSDKMeeting();
+
+            const config = {
+                name: "Jobi",
+                apiKey: "b8873bbc-116b-4b82-81d9-06c62a5199c1",
+                meetingId: "VIRTUAL_EVENT_DEMO",
+                redirectOnLeave: "http://127.0.0.1:5500/index.html",
+                micEnabled: true,
+                webcamEnabled: true,
+                participantCanToggleSelfWebcam: true,
+                participantCanToggleSelfMic: true,
+                chatEnabled: true,
+                raiseHandEnabled: true,
+                webcamEnabled: true,
+                participantCanToggleSelfWebcam: true,
+                maxResolution: "sd", // "sd" or "hd"
+                micEnabled: true,
+                participantCanToggleSelfMic: true,
+                participantCanLeave: true,
+                redirectOnLeave: "http://127.0.0.1:5500/index.html",
+                screenShareEnabled: true,
+                theme: "LIGHT", // DARK || LIGHT || DEFAULT
+                layout: {
+                    type: "SPOTLIGHT", // "SPOTLIGHT" | "SIDEBAR" | "GRID"
+                    priority: "SPEAKER", // "SPEAKER" | "PIN",
+                    // gridSize: 3,
+                },
+                joinScreen: {
+                    visible: false, // Show the join screen ?
+                    title: "Virtual Events", // Meeting title
+                    //   meetingUrl: window.location.href, // Meeting joining url
+
+                },
+                waitingScreen: {
+                    imageUrl: "",
+                    text: "Loading...",
+                },
+                
+                permissions: {
+                    pin: true,
+                    removeParticipant: true,
+                    endMeeting: true,
+                    changeLayout: true,
+                    askToJoin: false,
+                    toggleParticipantWebcam: false,
+                    toggleParticipantMic: true,
+                    toggleParticipantScreenshare: false,
+                },
+                branding: {
+                    enabled: false,
+                    // logoURL:
+                    //     "https://png.pngtree.com/element_our/20190528/ourmid/pngtree-url-small-icon-opened-in-the-browser-image_1132270.jpg",
+                    name: " Virtual Event",
+                    poweredBy: false,
+                },
+            };
+
+            meeting.init(config);
+        });
+
+        script.src =
+            "https://sdk.videosdk.live/rtc-js-prebuilt/0.3.23/rtc-js-prebuilt.js";
+
+        document.getElementsByTagName("head")[0].appendChild(script);
+
+    </script>
+</body>
+
+</html>
